@@ -1,0 +1,48 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<body>
+    <div id="reg">
+        <h3 class="text-center text-white pt-5">Registration form</h3>
+        <div class="container">
+            <div id="reg-row" class="row justify-content-center align-items-center">
+                <div id="reg-column" class="col-md-6">
+                    <div id="reg-box" class="col-md-12">
+                        <form id="reg-form" class="form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+                            <legend class="text-center text-info">REGISTER</legend>
+                            <div class="form-group">
+                                <label for="f_name" class="text-info">F_Name:</label><br>
+                                <input type="text" class="form-control" formControlName="f_name" required>
+                                <small *ngIf="f_name.errors?.required" class="text-danger">firstName is required</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="l_name" class="text-info">L_NAME:</label><br>
+                                <input type="text" class="form-control" formControlName="l_name" required>
+                                <small *ngIf="l_name.errors?.required" class="text-danger">lastName is required</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="Email" class="text-info">Email:</label><br>
+                                <input type="text" class="form-control" formControlName="Email" required>
+                                <small *ngIf="Email.errors?.required" class="text-danger">Email is required</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Password:</label><br>
+                                <input type="text" class="form-control" formControlName="password" required>
+                                <small *ngIf="password.errors?.required" class="text-danger">Password is required</small>
+                            </div>
+                            <div class="form-group" style="text-align: center;">
+                                <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                                <input type="submit" class="btn btn-info btn-md" [disabled]="!profileForm.valid" value="REGISTER">
+                                <p>
+                                    Form Status: {{ profileForm.status }}
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
